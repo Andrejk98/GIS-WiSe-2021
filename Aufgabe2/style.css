@@ -1,0 +1,76 @@
+.main {
+    margin: auto;
+    font: 1.1em/150% 'Segoe UI', Sans-Serif; 
+    margin-top: 60px; 
+    width: 800px;
+}
+
+a:hover {
+    background-color: black;
+    color: white;
+}
+
+li:hover {
+    font-size: 1.3em;
+    color: red;
+}
+
+header{
+    position: static;
+}
+
+div {
+    width: 600px;
+    border: 5px solid black;
+    padding: 50px;
+    margin: 20px;
+}
+
+img{
+    animation: textwelle 5s;
+}
+
+@keyframes textwelle {
+    0% {
+      transform: scale(0.1);
+      opacity: 0;
+    }  
+    70% {
+      transform: scale(0.75);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;	
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    h1{
+      color: deeppink;
+    }
+    h2{
+      color: deepskyblue;
+    }
+    h3{
+      color: forestgreen;
+    }
+    font{
+      font-size: 40px ;
+    }
+  }
+ 
+  @media screen and (min-width: 720px) {
+    h1{
+      color: deeppink;
+    }
+    h2{
+      color: deepskyblue;
+    }
+    h3{
+      color: forestgreen;
+    }
+    font{
+      font-size: 40px ;
+    }
+  }
