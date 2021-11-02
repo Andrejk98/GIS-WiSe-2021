@@ -30,6 +30,35 @@ img{
     animation: textwelle 5s;
 }
 
+#Schrift{
+  color: aquamarine;
+}
+
+header>p{
+  color: blue;
+}
+
+body h3{
+  color: crimson;
+}
+
+body h2{
+  color: darkcyan;
+}
+
+div+a{
+  color: cyan;
+}
+
+div>a{
+  color: deeppink;
+}
+
+table td{
+  color:greenyellow
+}
+
+
 @keyframes textwelle {
     0% {
       transform: scale(0.1);
@@ -46,31 +75,13 @@ img{
   }
 
   @media screen and (min-width: 1024px) {
-    h1{
-      color: deeppink;
-    }
-    h2{
-      color: deepskyblue;
-    }
-    h3{
-      color: forestgreen;
-    }
     font{
-      font-size: 40px ;
+      font-size: 60px ;
     }
   }
  
   @media screen and (min-width: 720px) {
-    h1{
-      color: deeppink;
-    }
-    h2{
-      color: deepskyblue;
-    }
-    h3{
-      color: forestgreen;
-    }
     font{
-      font-size: 40px ;
+      font-size: 30px ;
     }
   }
