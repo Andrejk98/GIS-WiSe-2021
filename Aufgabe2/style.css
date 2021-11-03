@@ -12,7 +12,10 @@ a:hover {
 
 li:hover {
     font-size: 1.3em;
-    color: red;
+}
+
+li{
+  color: white;
 }
 
 header{
@@ -24,6 +27,7 @@ div {
     border: 5px solid black;
     padding: 50px;
     margin: 20px;
+    background-color: rgb(65, 105, 225);
 }
 
 img{
@@ -39,7 +43,7 @@ header>p{
 }
 
 body h3{
-  color: crimson;
+  color: white;
 }
 
 body h2{
