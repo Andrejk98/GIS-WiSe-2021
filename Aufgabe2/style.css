@@ -3,7 +3,7 @@
     font: 1.1em/150% 'Segoe UI', Sans-Serif; 
     margin-top: 60px; 
     width: 800px;
-    background-color: beige;
+    background-color: lightgray;
 }
 
 a:hover {
@@ -21,6 +21,19 @@ li{
 
 header{
     position: static;
+    /*border: solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;*/
+}
+
+.before::before, .after::after {
+  content: "\A";
+  white-space: pre;
+}
+
+.audio{
+  margin-bottom: 50px;
 }
 
 div {
@@ -35,6 +48,7 @@ div {
 img{
     animation: textwelle 5s;
 }
+
 
 #Schrift{
   color: darkgoldenrod;
@@ -61,7 +75,7 @@ div>a{
 }
 
 table td{
-  color:greenyellow
+  color:royalblue
 }
 
 
