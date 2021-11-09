@@ -51,7 +51,22 @@ for (let i = 0; i < events.length; i++) {
 // Lösung c) ...
 // Lösung d) ...
 // Lösung e) ...
+let fact = 1;
+let num = 5;
+function factorial() {
+    while (num > 1) {
+        fact = fact * num;
+        num--;
+        console.log("The factorial  is " + fact);
+    }
+}
+factorial();
 // Lösung f) ...
+for (let i = 1; i <= 100; i++) {
+    if (i % 3 == 0) {
+        console.log(i);
+    }
+}
 // Lösung g) ...
 // Lösung h) ...
 //# sourceMappingURL=script.js.map

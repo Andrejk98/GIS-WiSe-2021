@@ -64,16 +64,22 @@
  // Lösung d) ...
  
  // Lösung e) ...
-  let num: number = 5; 
-  let factorial: number = 1; 
-
-  while(num >=1) { 
-   factorial = factorial * num; 
-   num--; 
+  let fact: number = 1;
+  let num: number = 5;
+  function factorial(){ 
+    while(num >1) { 
+    fact = fact * num; 
+    num--;   
+    console.log("The factorial  is "+ fact);
+    }
   } 
-  console.log("The factorial  is "+factorial);
+  factorial();
  // Lösung f) ...
- 
+ for (let i: number = 1; i <= 100; i++)  {
+    if (i % 3 == 0) {
+       console.log(i);
+    }
+  }
  // Lösung g) ...
  
  // Lösung h) ...
