@@ -62,7 +62,7 @@
  // Lösung c) ...
 
  // Lösung d) ...
- let künstler: any[][] = [
+ /*let künstler: any[][] = [
   ["Mark Knopfler"],
   ["Pink Floyd"],
   ["Metallica"],
@@ -81,14 +81,13 @@
           console.log("true")
           return true;
       }
-      /*
       else{
         console.log("false")
-      }*/
+      }
   } 
   return elementFound;
  }
- findEvent("Pink Floyd", künstler)
+ findEvent("Pink Floyd", künstler)*/
  // Lösung e) ...
   let fact: number = 1;
   let num: number = 5;

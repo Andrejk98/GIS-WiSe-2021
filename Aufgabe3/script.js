@@ -50,33 +50,32 @@ for (let i = 0; i < events.length; i++) {
 }
 // Lösung c) ...
 // Lösung d) ...
-let künstler = [
-    ["Mark Knopfler"],
-    ["Pink Floyd"],
-    ["Metallica"],
-    ["Michael Bublé"],
-    ["Dire Straits"],
-    ["Mariah Carey"],
-    ["Cat Stevens"],
-    ["Mark Forster"],
-    ["Helene Fischer"],
-    ["Bee Gees"],
+/*let künstler: any[][] = [
+ ["Mark Knopfler"],
+ ["Pink Floyd"],
+ ["Metallica"],
+ ["Michael Bublé"],
+ ["Dire Straits"],
+ ["Mariah Carey"],
+ ["Cat Stevens"],
+ ["Mark Forster"],
+ ["Helene Fischer"],
+ ["Bee Gees"],
 ];
-function findEvent(künstlername, künstler) {
-    let elementFound = false;
-    for (let i = 0; i < künstler.length; i++) {
-        if (künstler[i] === künstlername) {
-            console.log("true");
-            return true;
-        }
-        /*
-        else{
-          console.log("false")
-        }*/
-    }
-    return elementFound;
+function findEvent(künstlername: String, künstler: any[]) {
+ let elementFound = false;
+ for (let i = 0; i < künstler.length; i++) {
+     if (künstler[i] === künstlername) {
+         console.log("true")
+         return true;
+     }
+     else{
+       console.log("false")
+     }
+ }
+ return elementFound;
 }
-findEvent("Pink Floyd", künstler);
+findEvent("Pink Floyd", künstler)*/
 // Lösung e) ...
 let fact = 1;
 let num = 5;
