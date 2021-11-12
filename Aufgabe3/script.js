@@ -49,33 +49,26 @@ for (let i = 0; i < events.length; i++) {
     }
 }
 // Lösung c) ...
-// Lösung d) ...
-/*let künstler: any[][] = [
- ["Mark Knopfler"],
- ["Pink Floyd"],
- ["Metallica"],
- ["Michael Bublé"],
- ["Dire Straits"],
- ["Mariah Carey"],
- ["Cat Stevens"],
- ["Mark Forster"],
- ["Helene Fischer"],
- ["Bee Gees"],
-];
-function findEvent(künstlername: String, künstler: any[]) {
- let elementFound = false;
- for (let i = 0; i < künstler.length; i++) {
-     if (künstler[i] === künstlername) {
-         console.log("true")
-         return true;
-     }
-     else{
-       console.log("false")
-     }
- }
- return elementFound;
+function getHoechsterPreis(_events) {
+    let max = _events[0][1];
+    for (let outerIndex = 0; outerIndex < events.length; outerIndex++) {
+        if (_events[outerIndex][1] > max) {
+            max = _events[outerIndex][1];
+        }
+    }
+    return max;
 }
-findEvent("Pink Floyd", künstler)*/
+console.log(getHoechsterPreis(events));
+// Lösung d) ...
+function Kuenstler(_events, _kuenstlername) {
+    for (let outerIndex = 0; outerIndex < events.length; outerIndex++) {
+        if (_events[outerIndex][0] == _kuenstlername) {
+            return true;
+        }
+    }
+    return false;
+}
+console.log(Kuenstler(events, "Metallica"));
 // Lösung e) ...
 let fact = 1;
 let num = 5;
@@ -108,7 +101,7 @@ class ConcertEvent {
 let c = new ConcertEvent("Sido", 120);
 c.show();
 // Lösung h) ...
-let Concert = new Array;
+let Concert = new Array(10);
 Concert[0] = new ConcertEvent("Mark Knopfler", 10.1);
 Concert[1] = new ConcertEvent("Pink Floyd", 15.9);
 Concert[2] = new ConcertEvent("Metallica", 20.1);
@@ -120,6 +113,6 @@ Concert[7] = new ConcertEvent("Mark Forster", 2.1);
 Concert[8] = new ConcertEvent("Helene Fischer", 3.1);
 Concert[9] = new ConcertEvent("Bee Gees", 25.2);
 for (let i = 0; i < Concert.length; i++) {
-    console.log(Concert[i]);
+    Concert[i].show();
 }
 //# sourceMappingURL=script.js.map
