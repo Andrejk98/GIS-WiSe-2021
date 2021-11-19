@@ -49,7 +49,7 @@ for (let i = 0; i < events.length; i++) {
     }
 }
 // Lösung c) ...
-function getHoechsterPreis(_events) {
+function getPreis(_events) {
     let max = _events[0][1];
     for (let outerIndex = 0; outerIndex < events.length; outerIndex++) {
         if (_events[outerIndex][1] > max) {
@@ -58,7 +58,7 @@ function getHoechsterPreis(_events) {
     }
     return max;
 }
-console.log(getHoechsterPreis(events));
+console.log(getPreis(events));
 // Lösung d) ...
 function Kuenstler(_events, _kuenstlername) {
     for (let outerIndex = 0; outerIndex < events.length; outerIndex++) {
@@ -68,7 +68,7 @@ function Kuenstler(_events, _kuenstlername) {
     }
     return false;
 }
-console.log(Kuenstler(events, "Metallica"));
+console.log(Kuenstler(events, "Pink Floyd"));
 // Lösung e) ...
 let fact = 1;
 let num = 5;
