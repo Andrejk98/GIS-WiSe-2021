@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <form>
@@ -13,14 +14,14 @@
         <input type="text" id="interpret" name="interpret">
         <label for="price">Price:</label>
         <input type="number" id="price" name="price">
-        <input type="submit" value="Enter Event">
+        <input type="submit" id="enter" value="Enter Event">
       </form>
 
-      <table border="3">
+      <table id="table-body">
         <tr>
             <th>Interpret</th>
             <th>Price</th> 
-            <th></th>
+            <th>&nbsp</th>
         </tr>
       </table>
 </body>
