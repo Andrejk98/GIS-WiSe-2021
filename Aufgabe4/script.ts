@@ -37,12 +37,12 @@ namespace Aufgabe4{
         let newCell2 = newRow.insertCell(1);
         newCell1.appendChild(interpretInput);
         newCell2.appendChild(priceInput);*/
-        tbody.innerHTML += `<tr><td>${interpretInput.value}</td><td>${priceInput.value}</td><td><button class="delete">Delete</button></td></tr>`
+        tbody.innerHTML += `<tr><td>${interpretInput.value}</td><td>${priceInput.value}</td><td><button class="delete">Delete</button></td></tr>`;
     }
 
-    function deleteRow(){
+    function deleteRow(_e: Event){
         //const tbody = document.querySelector("tbody").deleteRow(document.getElementById(RowID).rowIndex);
-        
+        alert("Gedrückt");
     }
     
     enterbutton.addEventListener("click", enterEvent);

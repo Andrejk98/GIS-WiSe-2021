@@ -25,8 +25,9 @@ var Aufgabe4;
         newCell2.appendChild(priceInput);*/
         tbody.innerHTML += `<tr><td>${interpretInput.value}</td><td>${priceInput.value}</td><td><button class="delete">Delete</button></td></tr>`;
     }
-    function deleteRow() {
+    function deleteRow(_e) {
         //const tbody = document.querySelector("tbody").deleteRow(document.getElementById(RowID).rowIndex);
+        alert("Gedrückt");
     }
     enterbutton.addEventListener("click", enterEvent);
     enterbutton.addEventListener("click", addRow);
