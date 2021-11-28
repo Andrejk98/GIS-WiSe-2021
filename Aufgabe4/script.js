@@ -5,26 +5,30 @@ var Aufgabe4;
     const priceInput = (document.querySelector("#price"));
     const enterbutton = (document.querySelector("#enter"));
     const tbody = (document.querySelector("tbody"));
-    const deleteButton = (document.getElementById("delete"));
+    /*
+    const deleteButton: HTMLButtonElement = <HTMLButtonElement>(
+        document.getElementById("delete")
+    );
+    */
     function enterEvent(_evt) {
         _evt.preventDefault();
         console.log(interpretInput.value);
         console.log(priceInput.value);
     }
     function addRow(_e) {
-        //let table: HTMLTableSectionElement = <HTMLTableSectionElement> document.querySelector('tbody');
         _e.preventDefault();
-        tbody.innerHTML += `<tr><td>${interpretInput.value}</td><td>${priceInput.value}</td><td><button id="delete" onclick="deleteItem()">Delete</button></td></tr>`;
+        tbody.innerHTML += `<tr><td>${interpretInput.value}</td><td>${priceInput.value}</td><td><button>Delete</button></td></tr>`;
+        let allButtons = document.querySelectorAll("button");
+        for (const ele of allButtons) {
+            ele.addEventListener("click", function () {
+                this.parentElement.parentElement.parentElement.removeChild(this.parentElement.parentElement);
+            });
+        }
     }
-    function deleteRow(_e) {
-        //const tbody = document.querySelector("tbody").deleteRow(document.getElementById(RowID).rowIndex);
-        alert("Gedrückt");
-    }
-    function deleteItem() {
-        console.log("clicked");
-    }
+    /*function deleteItem(ele: HTMLButtonElement): void{
+        ele.parentElement.parentElement.parentElement.removeChild(ele.parentElement.parentElement);
+    }*/
     enterbutton.addEventListener("click", enterEvent);
     enterbutton.addEventListener("click", addRow);
-    deleteButton.addEventListener("click", deleteRow);
 })(Aufgabe4 || (Aufgabe4 = {}));
 //# sourceMappingURL=script.js.map
