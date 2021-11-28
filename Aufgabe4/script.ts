@@ -11,8 +11,12 @@ namespace Aufgabe4{
        document.querySelector("#enter") 
     );
 
-    const table: HTMLElement = <HTMLElement>(
-        document.querySelector("table")
+    const tbody: HTMLTableSectionElement = <HTMLTableSectionElement>(
+        document.querySelector("tbody")
+    );
+    
+    const deleteButton: HTMLButtonElement = <HTMLButtonElement>(
+        document.getElementById("delete")
     );
 
     function enterEvent(_evt: Event){
@@ -21,33 +25,24 @@ namespace Aufgabe4{
         console.log(priceInput.value)
     }
 
-    const tbody: HTMLTableSectionElement = <HTMLTableSectionElement>(
-        document.querySelector("tbody")
-    );
-
     function addRow(_e: Event){
         //let table: HTMLTableSectionElement = <HTMLTableSectionElement> document.querySelector('tbody');
         _e.preventDefault();
-        //const tbody = document.querySelector("tbody");
-        /*for(let i = 1; i < 1000; i++){
-            table.insertRow(i);
-        }*/
-        /*let newRow = table.insertRow(0);
-        let newCell1  = newRow.insertCell(0);
-        let newCell2 = newRow.insertCell(1);
-        newCell1.appendChild(interpretInput);
-        newCell2.appendChild(priceInput);*/
-        tbody.innerHTML += `<tr><td>${interpretInput.value}</td><td>${priceInput.value}</td><td><button class="delete">Delete</button></td></tr>`;
+        tbody.innerHTML += `<tr><td>${interpretInput.value}</td><td>${priceInput.value}</td><td><button id="delete" onclick="deleteItem()">Delete</button></td></tr>`;
     }
 
     function deleteRow(_e: Event){
         //const tbody = document.querySelector("tbody").deleteRow(document.getElementById(RowID).rowIndex);
         alert("Gedrückt");
     }
+
+    function deleteItem(): void{
+        console.log("clicked");
+    }
     
     enterbutton.addEventListener("click", enterEvent);
     enterbutton.addEventListener("click", addRow);
-    table.addEventListener("click", deleteRow);
+    deleteButton.addEventListener("click", deleteRow);
 }
 
 
