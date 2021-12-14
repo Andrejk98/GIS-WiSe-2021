@@ -1,6 +1,10 @@
 namespace Client {
     console.log("Client läuft"); //Testausgabe
 
+    const display: HTMLDivElement = <HTMLDivElement>(
+        document.getElementById("display")
+    );
+
     const url: string = "http://127.0.0.1:3000"; //URL Adresse, auf der der Server aktiv ist.
     const path: string = "/convertDate"; //Spezifischer Pfad, an den die Anfrage gehen soll.
 
@@ -35,5 +39,6 @@ namespace Client {
         let response: Response = await fetch(urlWithQuery); // Senden der Anfrage und warten auf Antwort
         let responseText: string = await response.text(); // Warten auf den Response-Text;
         console.log(responseText); // Ausgabe der Server-Antwort in der Konsole
+        display.textContent = responseText;
     }
 }

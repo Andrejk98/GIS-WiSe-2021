@@ -2,6 +2,7 @@
 var Client;
 (function (Client) {
     console.log("Client läuft"); //Testausgabe
+    const display = (document.getElementById("display"));
     const url = "http://127.0.0.1:3000"; //URL Adresse, auf der der Server aktiv ist.
     const path = "/convertDate"; //Spezifischer Pfad, an den die Anfrage gehen soll.
     const myForm = document.getElementById("myform"); //Referenzieren des Formulars
@@ -30,6 +31,7 @@ var Client;
         let response = await fetch(urlWithQuery); // Senden der Anfrage und warten auf Antwort
         let responseText = await response.text(); // Warten auf den Response-Text;
         console.log(responseText); // Ausgabe der Server-Antwort in der Konsole
+        display.textContent = responseText;
     }
 })(Client || (Client = {}));
 //# sourceMappingURL=client.js.map

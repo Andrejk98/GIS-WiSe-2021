@@ -35,8 +35,8 @@ namespace Server {
           break;
         case "/convertDate": //Spezifischer Pfad
           let date: string = url.searchParams.get("date"); //Auslesen eines Get-Parameters "name"
-          console.log(date); // Ausgabe der Angekommenen get-Parameters in der Server-Konsole
-          response.write(date); //Definieren der Rückgabe mit der name-Variable
+          console.log("Das eingegebene Datum lautet: " + date); // Ausgabe der Angekommenen get-Parameters in der Server-Konsole
+          response.write("Das eingegebene Datum lautet: " + date); //Definieren der Rückgabe mit der name-Variable
           break;
         default:
           response.statusCode = 404; // Wenn der Pfad nicht gefunden wurde, wollen wir eine 404-Fehlermeldung zurückgeben
