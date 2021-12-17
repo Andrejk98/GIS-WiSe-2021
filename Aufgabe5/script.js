@@ -1,57 +1,65 @@
 "use strict";
 var Aufgabe5;
 (function (Aufgabe5) {
-    const interpretInput = (document.querySelector("#interpret"));
-    const priceInput = (document.querySelector("#price"));
-    const enterbutton = (document.querySelector("#enter"));
-    const tbody = (document.querySelector("tbody"));
-    /*
-        const saveButton: HTMLButtonElement = <HTMLButtonElement>(
-            document.getElementById("save-Button")
-        );
-    
-        const loadButton: HTMLButtonElement = <HTMLButtonElement>(
-            document.getElementById("load-button")
-        );
-    */
-    const display = (document.getElementById("display"));
-    let interpretArray = [];
-    let priceArray = [];
-    /*
-        interface ConcertEvent {
-            interpret: string;
-            price: number;
-         }
-    */
-    function Save() {
-        console.log("save");
-        let already = interpretInput.value + "" + priceInput.value;
-        localStorage.setItem("storage-input", already);
+    window.addEventListener("load", init);
+    let inputInterpret;
+    let inputPrice;
+    let enterButton;
+    let displayTable;
+    let events = [];
+    function init(_event) {
+        inputInterpret = document.querySelector("#input-interpret");
+        inputPrice = document.querySelector("#input-price");
+        enterButton = document.querySelector("#input-enter");
+        enterButton.addEventListener("click", mybuttonHandler);
+        displayTable = document.querySelector("#display");
+        updateTableFromLocalStorage();
     }
-    function Load() {
-        console.log("Load Button clicked"); // Konsolenausgabe zum Test der Funktion
-        let valueFromLocalStorage = localStorage.getItem("storage-input"); //Suche im LocalStorage nach dem Wert mit dem Key; "gis_praktikum_input"
-        console.log("aktuelle Wert im Local Storage: " + valueFromLocalStorage); //gebe den aus dem LocalStorage gezogenen Wert in der Konsole aus
-        display.textContent = valueFromLocalStorage; //Überschreibe den Inhalt des Display-Elements mit dem aus dem LokalStorage gezogenen Wert.
+    function mybuttonHandler() {
+        updateSingle();
     }
-    function enterEvent(_evt) {
-        _evt.preventDefault();
-        Save();
-        Load();
+    function updateSingle() {
+        let inputEventData = {
+            interpret: inputInterpret.value,
+            price: +inputPrice.value,
+        };
+        events.push(inputEventData);
+        console.log(events);
+        let row = displayTable.insertRow();
+        insertDataInRow(row, inputEventData);
+        updateLocalStorage();
     }
-    function addRow(_e) {
-        _e.preventDefault();
-        tbody.innerHTML += `<tr><td>${interpretInput.value}</td><td>${priceInput.value}</td><td><button>Delete</button></td></tr>`;
-        let allButtons = document.querySelectorAll("button");
-        for (const ele of allButtons) {
-            ele.addEventListener("click", function () {
-                this.parentElement.parentElement.parentElement.removeChild(this.parentElement.parentElement);
-            });
+    function updateLocalStorage() {
+        localStorage.setItem("events", JSON.stringify(events));
+    }
+    function updateTableFromLocalStorage() {
+        let eventsString = localStorage.getItem("events");
+        if (!eventsString) {
+            return;
+        }
+        events = JSON.parse(eventsString);
+        for (let index = 0; index < events.length; index++) {
+            let row = displayTable.insertRow();
+            insertDataInRow(row, events[index]);
         }
     }
-    //saveButton.addEventListener("click", saveButtonHandler);
-    //loadButton.addEventListener("click", loadButtonHandler);
-    enterbutton.addEventListener("click", enterEvent);
-    enterbutton.addEventListener("click", addRow);
+    function insertDataInRow(_row, _data) {
+        let interpretCell = document.createElement("td");
+        let priceCell = document.createElement("td");
+        let deleteButton = document.createElement("button");
+        let eventDataRow = { event: _data, row: _row };
+        deleteButton.addEventListener("click", onDeleteButton.bind(eventDataRow));
+        interpretCell.innerHTML = _data.interpret;
+        priceCell.innerHTML = _data.price.toString();
+        deleteButton.innerHTML = "delete";
+        _row.appendChild(interpretCell);
+        _row.appendChild(priceCell);
+        _row.appendChild(deleteButton);
+    }
+    function onDeleteButton(_event) {
+        displayTable.deleteRow(this.row.rowIndex);
+        events = events.filter(event => event !== this.event);
+        updateLocalStorage();
+    }
 })(Aufgabe5 || (Aufgabe5 = {}));
 //# sourceMappingURL=script.js.map
