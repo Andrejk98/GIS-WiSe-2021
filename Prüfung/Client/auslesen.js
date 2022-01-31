@@ -1,10 +1,12 @@
 "use strict";
 const uebersicht = document.getElementById("uebersicht");
+const Detail = document.getElementById("detail");
 window.addEventListener("load", init);
 async function init(_event) {
     console.log("Says: ", await get());
     generateHTML(await get());
 }
+//Daten von MongoDB auslesen
 async function get() {
     let response = await fetch("http://localhost:3000/Gefrierschrank", {
         method: "GET"
@@ -13,17 +15,20 @@ async function get() {
     let detailEvents = JSON.parse(responseText);
     return detailEvents;
 }
+//HTML Seite aktualisieren
 function generateHTML(events) {
     events.forEach(event => {
-        let gefriergutValue = event.Gefriergut;
-        let ablaufdatumValue = Number(event.Ablaufdatum);
-        let notizValue = event.Notiz;
-        let anlegedatumValue = event.Notiz;
-        const del = document.createElement("button");
+        let gefriergutValue = inputGefriergut.value;
+        let ablaufdatumValue = inputAblaufdatum.value;
+        let notizValue = inputNotiz.value;
+        let anlegeDatum = new Date(); // aktuelles Datum
+        let kategorieValue = inputKategorie.value;
+        const del = document.createElement("button"); //Delete button erstellen
         del.textContent = "delete";
         del.className = "deleteButton";
         del.type = "submit";
         del.addEventListener("click", deleteButtonHandler);
+        //Deletebutton funktion
         function deleteButtonHandler() {
             newReihe.removeChild(newGefrierguElement);
             newReihe.removeChild(newAblaufdatumElement);
@@ -38,19 +43,21 @@ function generateHTML(events) {
         const newNotizElement = document.createElement("td");
         newNotizElement.textContent = String(notizValue);
         const newDateElement = document.createElement("td");
-        newDateElement.textContent = String(anlegedatumValue);
+        newDateElement.textContent = String(anlegeDatum);
+        const newKategorieElement = document.createElement("td");
+        newKategorieElement.textContent = String(kategorieValue);
         const newReihe = document.createElement("tr");
+        //Tabellenreihen hinzufügen        
         uebersicht.appendChild(newReihe);
         newReihe.appendChild(newGefrierguElement);
         newReihe.appendChild(newAblaufdatumElement);
         newReihe.appendChild(del);
-        /*
-                Detail.appendChild(newReihe);
-                newReihe.appendChild(newGefrierguElement);
-                newReihe.appendChild(newAblaufdatumElement);
-                newReihe.appendChild(newNotizElement);
-                newReihe.appendChild(newDateElement)
-        */
+        Detail.appendChild(newReihe);
+        newReihe.appendChild(newGefrierguElement);
+        newReihe.appendChild(newAblaufdatumElement);
+        newReihe.appendChild(newNotizElement);
+        newReihe.appendChild(newDateElement);
+        newReihe.appendChild(newKategorieElement);
     });
 }
 //# sourceMappingURL=auslesen.js.map

@@ -1,0 +1,44 @@
+#kategorie{
+    height: 21px;
+}
+
+#gefriergut{
+    height: 21px; 
+}
+
+#notiz{
+    height: 21px;
+}
+
+#ablaufdatum{
+    height: 21px;
+}
+
+table{
+    text-align: center;
+    align-content: center;
+    margin-left: 180px;
+    padding: 1px;
+}
+
+.main {
+    margin: auto;
+    font: 1.1em/150% 'Segoe UI', Sans-Serif; 
+    margin-top: 60px; 
+    width: 800px;
+    background-color: lightgray;
+    align-content: center;
+    text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+    font{
+      font-size: 60px ;
+    }
+  }
+ 
+  @media screen and (min-width: 720px) {
+    font{
+      font-size: 30px ;
+    }
+  }

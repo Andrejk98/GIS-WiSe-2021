@@ -1,8 +1,7 @@
 const inputGefriergut: HTMLInputElement = <HTMLInputElement>document.getElementById("gefriergut");
 const inputAblaufdatum: HTMLInputElement = <HTMLInputElement>document.getElementById("ablaufdatum");
 const inputNotiz: HTMLInputElement = <HTMLInputElement>document.getElementById("notiz");
-//const uebersicht: HTMLTableElement = <HTMLTableElement>document.getElementById("uebersicht");
-const Detail: HTMLElement = <HTMLElement>document.getElementById("detail");
+const inputKategorie: HTMLSelectElement = <HTMLSelectElement>document.getElementById("kategorie");
 const enterButton1: HTMLButtonElement = <HTMLButtonElement>document.getElementById("enter");
 enterButton1.addEventListener("click", function (_evt: Event): void {
     _evt.preventDefault();
@@ -30,6 +29,7 @@ interface detailEvent{
     Ablaufdatum: string;
     Notiz: string;
     Anlegedatum: Date;
+    Kategorie: string;
 }
 
 function enterButtonHandler(): void {
@@ -37,6 +37,7 @@ function enterButtonHandler(): void {
     let ablaufdatumValue: string = inputAblaufdatum.value;
     let notizValue: string = inputNotiz.value;
     let anlegeDatum: Date = new Date(); // aktuelles Datum
+    let kategorieValue: string = inputKategorie.value;
     console.log(gefriergutValue);
     console.log(ablaufdatumValue);
     console.log(notizValue);
@@ -88,12 +89,13 @@ function enterButtonHandler(): void {
         Gefriergut: gefriergutValue,
         Ablaufdatum: ablaufdatumValue,
         Notiz: notizValue,
-        Anlegedatum: anlegeDatum
+        Anlegedatum: anlegeDatum,
+        Kategorie: kategorieValue
     };
     post(detailEvent);
 
 }
-
+//Daten an MongoDB schicken
 async function post(detailEvent: detailEvent): Promise<void> {
     console.log(detailEvent);
     await fetch("http://localhost:3000/Gefrierschrank", {
@@ -103,8 +105,8 @@ async function post(detailEvent: detailEvent): Promise<void> {
     console.log(detailEvent);
 }
 
-
-
+/*
+//Daten von MongoDB auslesen
 async function get(): Promise<detailEvent[]> {
 
     let response: Response = await fetch("http://localhost:3000/Gefrierschrank", {
@@ -117,14 +119,15 @@ async function get(): Promise<detailEvent[]> {
 
     return detailEvents;
 }
-
-
+*/
+/*
+//Seite aktualisieren
 function generateHTML(events: detailEvent[]) {
     events.forEach(event => {
         let gefriergutValue: string = event.Gefriergut;
         let ablaufdatumValue: number = Number(event.Ablaufdatum);
         let notizValue: string = event.Notiz;
-        let anlegedatumValue: string = event.Notiz;
+        let anlegedatumValue: Date = event.Anlegedatum;
         const del: HTMLButtonElement = document.createElement("button");
         del.textContent = "delete";
         del.className = "deleteButton";
@@ -148,7 +151,7 @@ function generateHTML(events: detailEvent[]) {
         const newDateElement: HTMLTableCellElement = document.createElement("td");
         newDateElement.textContent = String(anlegedatumValue)
         const newReihe: HTMLTableRowElement = document.createElement("tr");
-
+//Tabellenreihen hinzufügen
         uebersicht.appendChild(newReihe);
         newReihe.appendChild(newGefrierguElement);
         newReihe.appendChild(newAblaufdatumElement);
@@ -161,4 +164,4 @@ function generateHTML(events: detailEvent[]) {
         newReihe.appendChild(newDateElement)
 
     });
-}
+}*/

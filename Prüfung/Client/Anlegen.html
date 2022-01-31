@@ -8,14 +8,24 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
-<body>
+<body class="main">
     <form>
         <label for="Gefriergut">Gefriergut:</label>
         <input type="text" id="gefriergut" name="gefriergut">
         <label for="Ablaufdatum">Ablaufdatum:</label>
         <input type="date" id="ablaufdatum" name="ablaufdatum">
+        <br>
         <label for="Notiz">Notiz:</label>
         <input type="text" id="notiz" name="notiz">
+        <label for="Kategorie">Kategorie</label>
+        <select name="kategorie" id="kategorie" multiple>
+            <option value="fleisch">Fleisch &#129385;</option>
+            <option value="fisch">Fisch &#128031;</option>
+            <option value="gemüse">Gemüse &#129382;</option>
+            <option value="obst">Obst &#127822;</option>
+            <option value="pizza">Pizza &#127829;</option>
+            <option value="kartoffel">Kartoffelprodukt &#129364;</option>
+        </select>
         <input type="submit" id="enter" value="Anlegen">
       </form>
 </body>
