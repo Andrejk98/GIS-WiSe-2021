@@ -21,6 +21,7 @@ export namespace Gefrierschrank {
         ablaufdatum: string;
         notiz: string;
         anlegedatum: Date;
+        kategorie: string;
     }
 
     interface MongoGefrierschrank {
@@ -29,6 +30,7 @@ export namespace Gefrierschrank {
         ablaufdatum: string;
         notiz: string;
         anlegedatum: Date;
+        kategorie: string;
     }
 
     async function dbFind(db: string, collection: string, response: http.ServerResponse): Promise<void> {
@@ -63,7 +65,7 @@ export namespace Gefrierschrank {
             //let inputÜbersicht: übersichtEvent = JSON.parse(jsonString);
             let inputDetail: detailEvent = JSON.parse(jsonString);
             let MongoGefrierschrank: MongoGefrierschrank = {
-                _id: new ObjectId(), gefriergut: inputDetail.gefriergut, ablaufdatum: inputDetail.ablaufdatum, notiz: inputDetail.notiz, anlegedatum: inputDetail.anlegedatum
+                _id: new ObjectId(), gefriergut: inputDetail.gefriergut, ablaufdatum: inputDetail.ablaufdatum, notiz: inputDetail.notiz, anlegedatum: inputDetail.anlegedatum, kategorie: inputDetail.kategorie
             };
 
             console.log("incomingevent: ", jsonString);

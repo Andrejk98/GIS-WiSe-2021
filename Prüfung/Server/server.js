@@ -29,7 +29,7 @@ var Gefrierschrank;
             //let inputÜbersicht: übersichtEvent = JSON.parse(jsonString);
             let inputDetail = JSON.parse(jsonString);
             let MongoGefrierschrank = {
-                _id: new mongodb_1.ObjectId(), gefriergut: inputDetail.gefriergut, ablaufdatum: inputDetail.ablaufdatum, notiz: inputDetail.notiz, anlegedatum: inputDetail.anlegedatum
+                _id: new mongodb_1.ObjectId(), gefriergut: inputDetail.gefriergut, ablaufdatum: inputDetail.ablaufdatum, notiz: inputDetail.notiz, anlegedatum: inputDetail.anlegedatum, kategorie: inputDetail.kategorie
             };
             console.log("incomingevent: ", jsonString);
             await post(MongoGefrierschrank);

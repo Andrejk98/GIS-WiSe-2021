@@ -14,11 +14,30 @@
     height: 21px;
 }
 
+#navigation a {
+  color: black;
+  text-align:end;
+  font-size: 1.25em;
+  border: 0.05em solid black;
+  padding: 1em;
+  display: inline;
+}
+
+#navigation a:hover {
+  color: red;
+}
+
 table{
     text-align: center;
     align-content: center;
     margin-left: 180px;
     padding: 1px;
+}
+
+h3 {
+  color: black;
+  text-align: center;
+  font-size: 2em;
 }
 
 .main {
@@ -27,8 +46,8 @@ table{
     margin-top: 60px; 
     width: 800px;
     background-color: lightgray;
-    align-content: center;
     text-align: center;
+    align-items: center;
 }
 
 @media screen and (min-width: 1024px) {

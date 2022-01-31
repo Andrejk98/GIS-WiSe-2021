@@ -65,8 +65,9 @@ function generateHTML(events: detailEvent[]) {
         uebersicht.appendChild(newReihe);
         newReihe.appendChild(newGefrierguElement);
         newReihe.appendChild(newAblaufdatumElement);
+        newReihe.appendChild(newKategorieElement);
         newReihe.appendChild(del);
-
+        
         Detail.appendChild(newReihe);
         newReihe.appendChild(newGefrierguElement);
         newReihe.appendChild(newAblaufdatumElement);
